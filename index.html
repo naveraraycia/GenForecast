@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Inter&display=swap" rel="stylesheet">
+  <!-- TAILWIND CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        fontFamily: {
+          'asap': ['Asap', 'sans-serif'],
+          'inter': ['Inter', 'sans-serif']
+        },
+        screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px'
+      },
+        extend: {
+          colors: {
+            lightPurple: '#F3F6FD',
+            purple: '#6C63FF',
+            slate: '#F8F3F3',
+            placeholderSlate: '#828282',
+            lightMaleBlue: '#CBE7FD',
+            maleBlue: '#638FFF',
+            lightFemalePink: '#FAD9EC',
+            femalePink: '#FF82C5',
+            lightNullGreen: '#D9FAEE',
+            nullGreen: '#00DCB4'
+          }
+        }
+      }
+    }
+  </script>
+  <title>GenForecast</title>
+</head>
+<body class="bg-lightPurple py-10 px-5 lg:p-20">
+  <section id="gender">
+    <!-- Spinner -->
+    <div id="spinner" class="hidden mx-auto">
+      <img src="assets/img/genForecast-spinner.gif" class="w-[250px] h-[250px] mx-auto mt-32" alt="loading...">
+    </div>
+    <div id="home" class="bg-white mx-auto py-24 px-10 rounded-2xl space-y-12 max-w-[1000px] flex flex-col justify-center items-center md:flex-row md:space-x-32">
+      <div class="flex flex-col space-y-8">
+        <div class="flex flex-col space-y-6">
+          <div class="flex flex-col space-y-4 tracking-[1px] text-asap text-black font-bold text-4xl">
+            <h1>Welcome!</h1>
+            <h1>to GenForecast</h1>
+          </div>
+          <div>
+            <p class="text-inter text-2xl max-w-[350px]">Enter a name and we’ll predict its Gender</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col text-asap space-y-5">
+          <input onkeypress="return event.charCode != 32" type="text" id="name" class="py-5 px-8 capitalize rounded-lg text-md bg-slate w-full placeholder:text-placeholderSlate placeholder:text-md focus:outline-none" placeholder="Name">
+
+          <button id="predict-btn" class="rounded-lg bg-purple text-white font-bold py-5 px-10 hover:bg-[#5349ED] hover:cursor-pointer">Predict Gender</button>
+        </div>
+      </div>
+
+      <img src="assets/img/home-svg.svg" class="w-[250px] h-[250] lg:w-[300px] lg:h-[300px]" alt="predict gender">
+    </div>
+
+    <!-- Male Result -->
+    <div id="male-result" class="hidden bg-lightMaleBlue mx-auto py-24 px-10 rounded-2xl space-y-8 max-w-[1000px] flex flex-col justify-center items-center">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <img src="assets/img/male-svg.svg" class="w-[180px] h-[180px]" alt="male">
+
+        <div class="flex flex-col space-y-2 justify-center items-center">
+          <h3 class="text-asap text-3xl font-bold">Male</h3>
+          <p id="male-description" class="text-inter text-md"></p>
+        </div>
+      </div>
+
+      <button class="predict-another-btn rounded-lg bg-maleBlue text-white font-bold py-5 px-10 hover:bg-[#4170EB] hover:cursor-pointer">Predict another name</button>
+    </div>
+
+    <!-- Female Result -->
+    <div id="female-result" class="hidden bg-lightFemalePink mx-auto py-24 px-10 rounded-2xl space-y-8 max-w-[1000px] flex flex-col justify-center items-center">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <img src="assets/img/female-svg.svg" class="w-[180px] h-[180px]" alt="male">
+
+        <div class="flex flex-col space-y-2 justify-center items-center">
+          <h3 class="text-asap text-3xl font-bold">Female</h3>
+          <p id="female-description" class="text-inter text-md"></p>
+        </div>
+      </div>
+
+      <button class="predict-another-btn rounded-lg bg-femalePink text-white font-bold py-5 px-10 hover:bg-[#F868B6] hover:cursor-pointer">Predict another name</button>
+    </div>
+
+    <!-- Null Result -->
+    <div id="null-result" class="hidden bg-lightNullGreen mx-auto py-24 px-10 rounded-2xl space-y-8 max-w-[1000px] flex flex-col justify-center items-center">
+      <div class="flex flex-col space-y-4 items-center justify-center">
+        <img src="assets/img/null-svg.svg" class="w-[180px] h-[180px]" alt="male">
+
+        <div class="flex flex-col space-y-2 justify-center items-center">
+          <h3 class="text-asap text-3xl font-bold">Sorry...</h3>
+          <p class="text-inter text-md">We could not evaluate the name you entered</p>
+        </div>
+      </div>
+
+      <button class="predict-another-btn rounded-lg bg-nullGreen text-white font-bold py-5 px-10 hover:bg-[#01BE9C] hover:cursor-pointer">Predict another name</button>
+    </div>
+  </section>
+</body>
+
+<script src="app.js"></script>
+</html>
