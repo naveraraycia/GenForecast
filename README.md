@@ -1,6 +1,6 @@
 # GenForecast
 ## Introduction
-GenForecast is a web application that determines name gender based on a given name.
+GenForecast is a web application that determines gender based on a given name.
 
 ### Demo
 GenForecast is live [here](https://naveraraycia.github.io/GenForecast/)
@@ -16,4 +16,4 @@ The website is built with the following technologies:
 
 ## Features
 ### Gender Prediction
-Based on the name inputted by the user, the web app will determine the name's gender. It also displays how much it evaluates that the name is either female or male in percentage.
+Based on the name inputted by the user, the web app will determine the gender. It also displays how much it evaluates that the name is either female or male in percentage.
